@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WebGL 2 - Textured Rotating Cube (No Lighting)</title>
+    <title></title>
     <style>
       html,
       body {
@@ -12,7 +12,7 @@
         padding: 0;
         overflow: hidden; /* Mencegah scrollbar */
         height: 100%; /* Memastikan body memenuhi tinggi viewport */
-        background-color: #222; /* Warna latar belakang gelap */
+        background-color: #8e1a1a; /* Warna latar belakang gelap */
       }
       #webgl-canvas {
         width: 100%;
@@ -28,7 +28,7 @@
 
     <!-- Vertex Shader -->
     <script id="vertex-shader" type="x-shader/x-vertex">
-      #version 300 es // <-- PASTIKAN TIDAK ADA SPASI/BARIS BARU SEBELUM INI
+      #version 300 es
                   in vec3 aVertexPosition;
                   in vec2 aTextureCoord;
 
@@ -59,7 +59,6 @@
                   }
     </script>
 
-    <!-- Main JavaScript Logic -->
     <script>
       "use strict"; // Gunakan strict mode
 
@@ -478,14 +477,11 @@
         // Set viewport agar sesuai ukuran drawing buffer (setelah resize)
         gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
 
-        // Gambar scene
         drawScene(gl, programInfo, vao, indexBuffer, texture, deltaTime);
 
-        // Minta frame berikutnya
         requestAnimationFrame(render);
       }
 
-      // --- Fungsi Utilitas Resize ---
       function resizeCanvasToDisplaySize(canvas) {
         // Ambil ukuran display aktual dari canvas (mungkin berbeda dari ukuran elemen CSS)
         const displayWidth = canvas.clientWidth;
